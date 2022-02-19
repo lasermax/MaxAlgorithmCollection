@@ -1,6 +1,6 @@
 package stack;
 
-public class ResizeableStack<T> extends StandardStack<T>{
+public class ResizeableStack<T> extends BaseStack<T> {
 
     public ResizeableStack() {
         super();
@@ -10,14 +10,20 @@ public class ResizeableStack<T> extends StandardStack<T>{
         super(initialSize);
     }
 
-    public void resize(int newSize) {
-        if (this.size() > newSize) {
-            throw new IllegalArgumentException("Can't resize a stack of size " + this.size() + " to new size of " + newSize);
-        }
-        Object[] newStackArray = new Object[newSize];
-
-        System.arraycopy(stackArray, 0, newStackArray, 0, this.size());
-        stackArray = newStackArray;
+    public ResizeableStack(T[] initialElements) {
+        super(initialElements);
     }
 
+    public ResizeableStack(int initialSize, T[] initialElements) {
+        super(initialSize, initialElements);
+    }
+
+    public void resize(int newSize) {
+        if (newSize < stack.length) {
+            throw new IllegalArgumentException("Size can not be smaller then the number of elements on the stack");
+        }
+        Object[] newStack = new Object[newSize];
+        System.arraycopy(stack, 0, newStack, 0, stackPointer);
+        stack = newStack;
+    }
 }
