@@ -14,12 +14,12 @@ public class ResizeableStack<T> extends BaseStack<T> {
         super(initialElements);
     }
 
-    public ResizeableStack(int initialSize, T[] initialElements) {
+    public ResizeableStack(int initialSize, T ...initialElements) {
         super(initialSize, initialElements);
     }
 
     public void resize(int newSize) {
-        if (newSize < stack.length) {
+        if (newSize < size()) {
             throw new IllegalArgumentException("Size can not be smaller then the number of elements on the stack");
         }
         Object[] newStack = new Object[newSize];

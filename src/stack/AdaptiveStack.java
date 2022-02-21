@@ -24,7 +24,7 @@ public class AdaptiveStack<T> extends ResizeableStack<T> {
         super(initialElements);
     }
 
-    public AdaptiveStack(int initialSize, T[] initialElements) {
+    public AdaptiveStack(int initialSize, T ...initialElements) {
         super(initialSize, initialElements);
     }
 
