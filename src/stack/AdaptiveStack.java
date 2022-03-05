@@ -24,11 +24,11 @@ public class AdaptiveStack<T> extends ResizeableStack<T> {
         super(initialElements);
     }
 
-    public AdaptiveStack(int initialSize, T ...initialElements) {
+    public AdaptiveStack(int initialSize, T[] initialElements) {
         super(initialSize, initialElements);
     }
 
-    public AdaptiveStack(int initialSize, int resizeStepSize, T[] initialElements) {
+    public AdaptiveStack(int initialSize, int resizeStepSize, T ...initialElements) {
         super(initialSize, initialElements);
 
         this.resizeStepSize = resizeStepSize;
@@ -37,6 +37,7 @@ public class AdaptiveStack<T> extends ResizeableStack<T> {
     @Override
     protected void addElementOnFullStack(T element) {
         resize(stackPointer + resizeStepSize);
+        addElement(element);
     }
 
     public int getResizeStepSize() {
