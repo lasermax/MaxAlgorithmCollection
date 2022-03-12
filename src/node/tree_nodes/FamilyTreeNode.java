@@ -31,7 +31,8 @@ public class FamilyTreeNode<T> extends TreeNode<T> {
         return this.children.toArray(new FamilyTreeNode[0]);
     }
 
-    public void addChildren(FamilyTreeNode<T>[] children) {
+    @SafeVarargs
+    public final void addChildren(FamilyTreeNode<T>... children) {
         for (FamilyTreeNode<T> child : children) {
             addChild(child);
         }
