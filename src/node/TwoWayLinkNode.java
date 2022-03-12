@@ -11,11 +11,13 @@ public class TwoWayLinkNode<T> extends LinkNode<T> {
     }
 
     public TwoWayLinkNode(T data, TwoWayLinkNode<T> successor) {
-        super(data, successor);
+        super(data);
+        setSuccessor(successor); //in order to avoid implicit cast in LinkNode.class
     }
 
     public TwoWayLinkNode(T data, TwoWayLinkNode<T> successor, TwoWayLinkNode<T> predecessor) {
-        super(data, successor);
+        super(data);
+        setSuccessor(successor); //in order to avoid implicit cast in LinkNode.class
         setPredecessor(predecessor);
     }
 
